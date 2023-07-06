@@ -1,6 +1,7 @@
 import './App.css';
 import NavBar from './NavBar';
 import kidsLearningimg from "./kids learning.jpeg";
+import Body from './Body';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <h1>Welcome!</h1>
           <p>Prep AI is a tool  made for Buffalo Prep in order to enhance learning. </p>
         </div>
+        <Body />
       </header>
     </div>
   );

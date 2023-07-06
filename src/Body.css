@@ -1,0 +1,21 @@
+.Body--container {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+.Body--container h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .Body--container p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
