@@ -5,23 +5,20 @@ import App from './App/App';
 import Learning from './Learning/Learning'
 import reportWebVitals from './reportWebVitals';
 import NavBar from './NavBar';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
   <Router>
-    <Switch>
-      <Route path="/" exact>
-        <NavBar />
+    <Routes>
+      <Route path="/" exact element={<NavBar/>}>
       </Route>
-      <Route path="/Learning" exact>
-        <Learning />
+      <Route path="/Learning" exact element={<Learning />}>
       </Route>
-      <Route path="/App">
-        <App />
+      <Route path="/App" exact element={<App />}>
       </Route>
-    </Switch>
+    </Routes>
   </Router>
 );
 
