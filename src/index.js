@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App/App';
+import App from './App';
 import Learning from './Learning/Learning'
 import reportWebVitals from './reportWebVitals';
 import NavBar from './NavBar';
@@ -12,12 +12,12 @@ root.render(
  
   <Router>
     <Routes>
-      <Route path="/" exact element={<NavBar/>}>
+      <Route path="/" exact element={<App/>}>
       </Route>
       <Route path="/Learning" exact element={<Learning />}>
       </Route>
-      <Route path="/App" exact element={<App />}>
-      </Route>
+      {/* <Route path="/App" exact element={<App />}>
+      </Route> */}
     </Routes>
   </Router>
 );
