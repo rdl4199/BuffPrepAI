@@ -10,6 +10,10 @@ function App() {
         <div className="Home--mainImg">
           <img alt="" src={kidsLearningimg}/>
         </div>
+        <div className='Home--welcome'>
+          <h1>Welcome!</h1>
+          <p>Prep AI is a tool  made for Buffalo Prep in order to enhance learning. </p>
+        </div>
       </header>
     </div>
   );
