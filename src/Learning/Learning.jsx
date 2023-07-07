@@ -1,15 +1,27 @@
 import React from 'react';
 import './Learning.css'
+import NavBar from '../NavBar';
 
 class Results extends React.Component {
-    render() {
-        const { score, totalQuestions } = this.props;
-        return (
-            <div>
-                <h1>Your Score: {score} / {totalQuestions}</h1>
-            </div>
-        );
-    }
+  render() {
+    const { score, totalQuestions, wrongAnswers } = this.props;
+
+    return (
+        <div>
+            <h1>Your Score: {score} / {totalQuestions}</h1>
+            <h2>You answered the following questions incorrectly:</h2>
+            <ul>
+                {wrongAnswers.map((item, index) => (
+                    <li key={index}>
+                        <p><strong>Question:</strong> {item.question}</p>
+                        <p><strong>Your answer:</strong> {item.selectedAnswer}</p>
+                        <p><strong>Correct answer:</strong> {item.correctAnswer}</p>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
 }
 
 class Learning extends React.Component {
@@ -106,7 +118,8 @@ class LearningApp extends React.Component {
             type: 'checkbox'
           },
           // Add more questions as needed
-        ]
+        ],
+        wrongAnswers: []
       };
     }
   
@@ -125,33 +138,53 @@ class LearningApp extends React.Component {
           score: prevState.score + 1
         }));
       }
-  
+      if (!isCorrect) {
+        // Add the question and selected answer to the wrongAnswers array
+        this.setState(prevState => ({
+            wrongAnswers: [
+                ...prevState.wrongAnswers,
+                {
+                    question: currentQuestion.question,
+                    correctAnswer: currentQuestion.choices[currentQuestion.answer],
+                    selectedAnswer: currentQuestion.choices[answer[0]]
+                }
+            ]
+        }));}
       if (this.state.currentIndex < this.state.questions.length - 1) {
         this.setState(prevState => ({
           currentIndex: prevState.currentIndex + 1
         }));
       } else {
+        this.setState(prevState => ({
+            currentIndex: prevState.currentIndex + 1
+          }));
         this.setState({ finished: true });
       }
     }
   
     render() {
+      const progress = ((this.state.currentIndex) / this.state.questions.length) * 100;
       return (
-        <div className='app-container'>
-            <div className='card'>
-                {!this.state.finished ? 
-                    <Learning 
-                    question={this.state.questions[this.state.currentIndex]} 
-                    handleAnswer={this.handleAnswer}
-                    /> :
-                    <Results score={this.state.score} totalQuestions={this.state.questions.length} />
-                }
-            </div>
-          
-        </div>
+          <div className='LearningPage'>
+              <NavBar></NavBar>
+              <div className="progress-bar">
+                  <div className="progress" style={{ width: `${progress}%` }}></div>
+              </div>
+              <div className='app-container'>
+                  <div className='card'>
+                      {!this.state.finished ? 
+                          <Learning 
+                          question={this.state.questions[this.state.currentIndex]} 
+                          handleAnswer={this.handleAnswer}
+                          /> :
+                          <Results score={this.state.score} totalQuestions={this.state.questions.length} wrongAnswers={this.state.wrongAnswers}/>
+                      }
+                  </div>
+              </div>
+          </div>
       );
-    }
   }
+}
   
 
 export default LearningApp;

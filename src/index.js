@@ -5,6 +5,7 @@ import App from './App/App';
 import Learning from './Learning/Learning'
 import reportWebVitals from './reportWebVitals';
 import NavBar from './NavBar';
+import VideoPlayer from './Video/Video';
 import { BrowserRouter as Router, Route, Switch, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,6 +18,10 @@ root.render(
       <Route path="/Learning" exact element={<Learning />}>
       </Route>
       <Route path="/App" exact element={<App />}>
+      </Route>
+      <Route path="/VideoPlayer" exact element={<VideoPlayer/>}>
+      </Route>
+      <Route path="/*" element={<App/>}>
       </Route>
     </Routes>
   </Router>

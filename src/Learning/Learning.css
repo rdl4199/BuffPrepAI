@@ -1,8 +1,9 @@
 .app-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
     background-color: #f2f2f2;
   }
   .card {
@@ -136,4 +137,22 @@
 
 .next-button:hover {
     background-color: #256BB1;
+}
+
+.LearningPage .Navbar--container
+{
+    position: relative;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #256BB1;
+    transition: width 0.4s ease-in-out;
 }
