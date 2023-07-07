@@ -8,8 +8,8 @@ class Results extends React.Component {
 
     return (
         <div>
-            <h1>Your Score: {score} / {totalQuestions}</h1>
-            <h2>You answered the following questions incorrectly:</h2>
+            <h1 className='QuestionTitle'>Your Score: {score} / {totalQuestions}</h1>
+            <h2>You fed the following questions incorrectly:</h2>
             <ul>
                 {wrongAnswers.map((item, index) => (
                     <li key={index}>
@@ -66,7 +66,7 @@ class Learning extends React.Component {
 
         return (
             <form onSubmit={this.handleSubmit}>
-                <h1>{question.question}</h1>
+                <h1 className='QuestionTitle'>{question.question}</h1>
 
                 {question.choices.map((choice, index) =>
                     <label key={index} 

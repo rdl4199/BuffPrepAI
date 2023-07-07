@@ -156,3 +156,8 @@
     background-color: #256BB1;
     transition: width 0.4s ease-in-out;
 }
+
+.QuestionTitle {
+    color: black;
+    text-shadow: none;
+}
