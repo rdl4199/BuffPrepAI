@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './NavBar.css';
 import buffPrepLogo from "./PrepAi Logo.png";
 
@@ -7,17 +7,41 @@ const NavBar = () => {
   return (
     <navbar className='Navbar--container'>
       <img className="Navbar--logo" alt="" src={buffPrepLogo}/>
-      <div className='Navbar-linksContainer Navbar-links-right'>
+      {/* <div className='Navbar-linksContainer Navbar-links-right'>
         <ul className="Navbar--links">
-              <li><a href="https://buffaloprep.com/about/">About Us</a></li>
+              <li><a href="https://buffaloprep.com/about/">AI Tools</a></li>
               <li><a><Link to="/Learning">Learning</Link></a></li>
-              {/* <li><a href="" target="_blank" rel="noreferrer">Learning</a></li> */}
-              <li><a href="https://buffaloprep.com/admissions/" target="_blank" rel="noreferrer">Admissions</a></li>
+              <li><a href="https://buffaloprep.com/admissions/">Admissions</a></li>
         </ul>
-      </div>
+      </div> */}
     </navbar>
   );
 };
 
 export default NavBar;
+
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import './NavBar.css';
+// import buffPrepLogo from "./PrepAi Logo.png";
+
+// const NavBar = () => {
+//   return (
+//     <div className='Navbar--container'>
+//       <nav className='Navbar--top'>
+//         <img className="Navbar--logo" alt="" src={buffPrepLogo}/>
+//       </nav>
+//       <nav className='Navbar--left'>
+//         <ul className="Navbar--links">
+//           <li><Link to="/learning">Learning</Link></li>
+//           <li><a href="https://buffaloprep.com/about/">AI Tools</a></li>
+//           <li><a href="https://buffaloprep.com/admissions/">Admissions</a></li>
+//         </ul>
+//       </nav>
+//     </div>
+//   );
+// };
+
+// export default NavBar;
+
 
